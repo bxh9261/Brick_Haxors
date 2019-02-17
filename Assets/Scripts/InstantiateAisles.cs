@@ -6,6 +6,7 @@ public class InstantiateAisles : MonoBehaviour
 {
     public Transform iWouldWalk500Aisles;
     public Transform buildAWall;
+    public Transform howDoYouSpellSealing;
     const int SCALE_DOWN = 4;
 
     // Start is called before the first frame update
@@ -31,6 +32,7 @@ public class InstantiateAisles : MonoBehaviour
         Instantiate(buildAWall, new Vector3(40, 5, 80), Quaternion.identity);
         Instantiate(buildAWall, new Vector3(0, 5, 40), Quaternion.Euler(0,90,0));
         Instantiate(buildAWall, new Vector3(80, 5, 40), Quaternion.Euler(0, 90, 0));
+        Instantiate(howDoYouSpellSealing, new Vector3(40, 10, 40), Quaternion.identity);
 
 
     }
