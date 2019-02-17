@@ -37,7 +37,7 @@ public class Temp_Recipes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //displays recipe
@@ -45,11 +45,24 @@ public class Temp_Recipes : MonoBehaviour
     {
         string temp = "";
         temp += "Current recipe: " + current.RecipeName + "\n";
-        for(int i = 0; i < current.Ingredients.Count; i++)
+        for (int i = 0; i < current.Ingredients.Count; i++)
         {
             temp += current.Ingredients[i] + "\n";
         }
 
         GUI.Box(new Rect(0, 0, 200, 100), temp);
+    }
+
+    public void matchFood(string food)
+    {
+        if (current.Ingredients.Contains(food))
+        {
+            points++;
+        }
+        else
+        {
+            points--;
+        }
+
     }
 }
