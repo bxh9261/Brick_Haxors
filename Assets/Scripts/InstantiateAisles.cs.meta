@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 69e86866393e113438cbaaac5cb1c079
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - iWouldWalk500Aisles: {fileID: 533089489590820178, guid: 2987c50324a88f347aaa6054033f886a,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
