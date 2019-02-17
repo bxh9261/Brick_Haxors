@@ -112,6 +112,39 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &130372738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100006, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+    type: 3}
+  m_PrefabInstance: {fileID: 1993978736}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &130372744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130372738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb35023f76f02442b01779721578f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 0
+  foodlist:
+  - {fileID: 2431003343358546236, guid: 19a32ee82f525fd438b43553c0405476, type: 3}
+  - {fileID: 2984870299538959396, guid: fa46317b5806ab24d83c4208caff3732, type: 3}
+  - {fileID: 2431003343358546236, guid: 87b59a8d757d4034c9c8ca0b5599b603, type: 3}
+  - {fileID: 2431003343358546236, guid: e3d0da82e5a93a54f9c0e367b9ba9ca0, type: 3}
+  - {fileID: 2431003343358546236, guid: 4c4822b04553e5843908fa327e9f9896, type: 3}
+  - {fileID: 2431003343358546236, guid: e03faaf82566da84682b901c3c27ff72, type: 3}
+  - {fileID: 2431003343358546236, guid: 617fe0eaf7b4bde4192222a54f094a8c, type: 3}
+  - {fileID: 2431003343358546236, guid: e8c2408784f0e784e82819ad012f016c, type: 3}
+  - {fileID: 2431003343358546236, guid: 4ceecd73a52d8e94892027fdd0d002ad, type: 3}
+  - {fileID: 4548124572271281023, guid: f681249b79b10664f8126f2f25253f38, type: 3}
+  - {fileID: 2431003343358546236, guid: 13ef82d01b60b3348a0b802a930aeb75, type: 3}
+  - {fileID: 2431003343358546236, guid: e6fb36b2e60416d478c6944096141553, type: 3}
+  - {fileID: 3475802980042543879, guid: 8e35b2ad62f528a4fb3e20f5e22de97e, type: 3}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,8 +308,6 @@ GameObject:
   - component: {fileID: 1052331850}
   - component: {fileID: 1052331852}
   - component: {fileID: 1052331853}
-  - component: {fileID: 1052331854}
-  - component: {fileID: 1052331855}
   m_Layer: 0
   m_Name: Scene Manager
   m_TagString: Untagged
@@ -335,49 +366,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e86866393e113438cbaaac5cb1c079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iWouldWalk500Aisles: {fileID: 533089489590820178, guid: 2987c50324a88f347aaa6054033f886a,
+  iWouldWalk500Aisles: {fileID: 7834755911688336948, guid: 7e37dcf0a5010db4992e0e6e57fabc9f,
     type: 3}
   buildAWall: {fileID: 1666460541856894933, guid: d402ae438d3f9b84a89b7c4a2ffe5c69,
     type: 3}
   howDoYouSpellSealing: {fileID: 4753793555358176980, guid: 86488b0ce1361ed4690c0cd2f1e5ec26,
     type: 3}
---- !u!114 &1052331854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052331849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ee8c89159081b458cbea0f8f89ed42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foodlist:
-  - {fileID: 2431003343358546236, guid: 19a32ee82f525fd438b43553c0405476, type: 3}
-  - {fileID: 2984870299538959396, guid: fa46317b5806ab24d83c4208caff3732, type: 3}
-  - {fileID: 2431003343358546236, guid: 87b59a8d757d4034c9c8ca0b5599b603, type: 3}
-  - {fileID: 2431003343358546236, guid: e3d0da82e5a93a54f9c0e367b9ba9ca0, type: 3}
-  - {fileID: 2431003343358546236, guid: 4c4822b04553e5843908fa327e9f9896, type: 3}
-  - {fileID: 2431003343358546236, guid: e03faaf82566da84682b901c3c27ff72, type: 3}
-  - {fileID: 2431003343358546236, guid: 617fe0eaf7b4bde4192222a54f094a8c, type: 3}
-  - {fileID: 2431003343358546236, guid: e8c2408784f0e784e82819ad012f016c, type: 3}
-  - {fileID: 2431003343358546236, guid: 4ceecd73a52d8e94892027fdd0d002ad, type: 3}
-  - {fileID: 4548124572271281023, guid: f681249b79b10664f8126f2f25253f38, type: 3}
-  - {fileID: 2431003343358546236, guid: 13ef82d01b60b3348a0b802a930aeb75, type: 3}
-  - {fileID: 2431003343358546236, guid: e6fb36b2e60416d478c6944096141553, type: 3}
---- !u!114 &1052331855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052331849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eb35023f76f02442b01779721578f04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1981904092
 GameObject:
   m_ObjectHideFlags: 0

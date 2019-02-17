@@ -5,6 +5,8 @@ using UnityEngine;
 public class Temp_Recipes : MonoBehaviour
 {
 
+    int recComplete;
+
     Recipe cake;
     Recipe breakfast;
     Recipe football;
@@ -19,9 +21,12 @@ public class Temp_Recipes : MonoBehaviour
     public List<GameObject> foodlist;
     private List<Vector3> foodlocs;
 
+    List<Recipe> used;
+
     // Start is called before the first frame update
     void Start()
     {
+        used = new List<Recipe>();
         foodlocs = new List<Vector3>();
 
 
@@ -30,7 +35,7 @@ public class Temp_Recipes : MonoBehaviour
         {
             for (int j = 0; j < 2; j++)
             {
-                foodlocs.Add(new Vector3(7 + j * 10, 2, 8 + i * 17));
+                foodlocs.Add(new Vector3(10 + j * 10, 2, 8 + i * 17));
             }
         }
 
@@ -38,7 +43,7 @@ public class Temp_Recipes : MonoBehaviour
         {
             for (int j = 0; j < 3; j++)
             {
-                foodlocs.Add(new Vector3(70 - j * 16, 2, 10 + i * 10));
+                foodlocs.Add(new Vector3(70 - j * 16, 2, 13 + i * 10));
             }
         }
 
@@ -56,7 +61,14 @@ public class Temp_Recipes : MonoBehaviour
         metal = new Recipe("Delicious Metal and Glass", new List<string> { "Bottle", "Can" });
         recipes.Add(metal);
 
-        current = recipes[Random.Range(0, 5)];
+        do
+        {
+            current = recipes[Random.Range(0, 5)];
+            
+        }
+        while (used.Contains(current));
+        used.Add(current);
+
     }
     // Update is called once per frame
     void Update()
@@ -135,7 +147,7 @@ public class Temp_Recipes : MonoBehaviour
                 matchFood("Pop");
                 break;
             default:
-                Debug.Log("Food not added yet.");
+                Debug.Log("Can't eat that.");
                 break;
         }
     }
@@ -148,7 +160,15 @@ public class Temp_Recipes : MonoBehaviour
             current.Ingredients.Remove(food);
             if(current.Ingredients.Count == 0)
             {
-                current = recipes[Random.Range(0, 5)];
+                recComplete++;
+                do
+                {
+                    current = recipes[Random.Range(0, 5)];
+                    
+                }
+                while (used.Contains(current));
+                used.Add(current);
+
                 DestroyAll();
                 PutFoodInLocs();
             }
@@ -201,8 +221,14 @@ public class Temp_Recipes : MonoBehaviour
             Object[] allObjects = FindObjectsOfType(typeof(GameObject));
             foreach (GameObject obj in allObjects)
             {
-                if(foodlist.Contains(obj))
-                Destroy(obj);
+                if(obj.name == "Apple(Clone)" || obj.name == "Banana(Clone)" || obj.name == "Bottle(Clone)" 
+                    || obj.name == "Bread(Clone)" || obj.name == "Can(Clone)" || obj.name == "Cereal(Clone)" 
+                    || obj.name == "Chips(Clone)" || obj.name == "Cheese(Clone)" || obj.name == "Egg(Clone)" 
+                    || obj.name == "Flour(Clone)" || obj.name == "Meat(Clone)" || obj.name == "Milk(Clone)" || obj.name == "Pop(Clone)") 
+                {
+                    Destroy(obj);
+                }
+                
             }
         }
     }
