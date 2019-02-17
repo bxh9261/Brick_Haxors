@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿/*
+ * using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -62,13 +63,14 @@ public class FoodList : MonoBehaviour
             //rotation based on aisle
             if(rand >= 8)
             {
-                rotation = 270;
+                rotation = 180;
             }
             else
             {
-                rotation = 180;
+                rotation = 270;
             }
             Instantiate(foodlist[i], foodlocs[rand], Quaternion.Euler(0,rotation,0));
         }
     }
 }
+*/

@@ -16,9 +16,33 @@ public class Temp_Recipes : MonoBehaviour
     List<Recipe> recipes;
     public int points;
 
+    public List<GameObject> foodlist;
+    private List<Vector3> foodlocs;
+
     // Start is called before the first frame update
     void Start()
     {
+        foodlocs = new List<Vector3>();
+
+
+
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 2; j++)
+            {
+                foodlocs.Add(new Vector3(7 + j * 10, 2, 8 + i * 17));
+            }
+        }
+
+        for (int i = 0; i < 6; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                foodlocs.Add(new Vector3(70 - j * 16, 2, 10 + i * 10));
+            }
+        }
+
+        PutFoodInLocs();
         recipes = new List<Recipe>();
 
         cake = new Recipe("Red Velvet Cake", new List<string> { "Milk", "Flour", "Egg" });
@@ -102,6 +126,10 @@ public class Temp_Recipes : MonoBehaviour
                 Destroy(col.gameObject);
                 matchFood("Meat");
                 break;
+            case "Milk(Clone)":
+                Destroy(col.gameObject);
+                matchFood("Milk");
+                break;
             case "Pop(Clone)":
                 Destroy(col.gameObject);
                 matchFood("Pop");
@@ -117,11 +145,65 @@ public class Temp_Recipes : MonoBehaviour
         if (current.Ingredients.Contains(food))
         {
             points++;
+            current.Ingredients.Remove(food);
+            if(current.Ingredients.Count == 0)
+            {
+                current = recipes[Random.Range(0, 5)];
+                DestroyAll();
+                PutFoodInLocs();
+            }
         }
         else
         {
             points--;
         }
 
+    }
+
+    void PutFoodInLocs()
+    {
+        
+
+
+        List<int> positions = new List<int>();
+        int rotation;
+        int rand;
+
+        for (int i = 0; i < foodlist.Count; i++)
+        {
+
+            //checks to make sure random position isn't already occupied
+            do
+            {
+                rand = Random.Range(0, 26);
+            }
+            while (positions.Contains(rand));
+
+            positions.Add(rand);
+
+            //rotation based on aisle
+            if (rand >= 8)
+            {
+                rotation = 180;
+            }
+            else
+            {
+                rotation = 270;
+            }
+            Instantiate(foodlist[i], foodlocs[rand], Quaternion.Euler(0, rotation, 0));
+        }
+    }
+
+    void DestroyAll()
+    {
+        for (int i = 0; i < foodlist.Count; i++)
+        {
+            Object[] allObjects = FindObjectsOfType(typeof(GameObject));
+            foreach (GameObject obj in allObjects)
+            {
+                if(foodlist.Contains(obj))
+                Destroy(obj);
+            }
+        }
     }
 }
