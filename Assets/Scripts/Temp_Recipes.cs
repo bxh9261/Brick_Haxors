@@ -11,7 +11,7 @@ public class Temp_Recipes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cake = new Recipe("Red Velvet Cake", new List<string> { "milk", "butter", "eggs" });
+        cake = new Recipe("Red Velvet Cake", new List<string> { "Milk", "Flour", "Eggs" });
     }
     // Update is called once per frame
     void Update()
